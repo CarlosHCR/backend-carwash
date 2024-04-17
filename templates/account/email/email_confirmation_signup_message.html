@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #f9fafb;
+        font-family: "Source Sans Pro", Sans-Serif;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .header {
+        background-color: #000000;
+        color: #fff;
+        text-align: center;
+        padding: 15px;
+      }
+      .content {
+        padding: 20px;
+        text-align: center;
+      }
+      .button {
+        background-color: #000000;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none !important;
+      }
+      a {
+        text-decoration: none !important;
+        color: #ffffff !important;
+      }
+      img.responsive-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="https://i.postimg.cc/W44ygwzz/logo2.jpg"
+        alt="GastroCustos"
+        class="responsive-image"
+      />
+      <div class="content">
+        <h1>Vamos verificar seu e-mail!</h1>
+        <p>
+          Basta usar o link abaixo para verificar seu e-mail e seguir as
+          próximas etapas para confirmar sua conta.
+        </p>
+        <a href="{{ FE_URL }}/confirm-email/{{ key }}" class="button"
+          >VERIFIQUE SEU E-MAIL</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+# Django Rest Framework
+Django==5.0.3
+djangorestframework==3.14.0
+django-cors-headers==4.3.1
+django_filter==23.5
+setuptools==69.0.3
+
+# Environment
+django-dotenv==1.4.2
+
+
+# Authentication
+dj-rest-auth[with_social]==4.0.1
+djangorestframework-simplejwt==5.3.0
+
+# Database
+psycopg2-binary==2.9.6
+dj_database_url==0.5.0
+
+# Swagger
+drf-yasg
+
+# Celery
+celery==5.2.7
+redis==4.3.3
+vine==5.0.0
+eventlet
+gevent
+flower

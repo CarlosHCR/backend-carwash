@@ -1,0 +1,15 @@
+version: '3.0'
+services:
+  db:
+    image: postgres:16.2
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./docker/db/pgdata:/var/lib/postgresql/data"
+    environment:
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "carwash"
+  redis:
+    image: redis:5.0
+    ports:
+      - "6379:6379"
