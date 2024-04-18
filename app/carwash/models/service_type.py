@@ -23,6 +23,9 @@ class ServiceType(TimestampModel):
         default=True,
         verbose_name=_('Is Active'),
     )
+    description = models.TextField(
+        verbose_name=_('Description'),
+    )
 
     def __str__(self):
         return self.name
