@@ -30,7 +30,7 @@ class CreateCarWashServiceSerializer(serializers.ModelSerializer):
 
     def validate(self, attrs):
         if 'license_plate_number' in attrs:
-            license_plate_number = attrs.pop('license_plate_number')
+            license_plate_number = attrs.pop('license_plate_number').upper()
             if license_plate_number:
                 vehicle_license_plate, created = VehicleLicensePlate.objects.get_or_create(
                     number=license_plate_number)
