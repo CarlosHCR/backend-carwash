@@ -1,1 +1,1 @@
-default_app_config = 'app.carwash.apps.CarwashServicesConfig'
+default_app_config = 'app.carwash.apps.CarwashConfig'

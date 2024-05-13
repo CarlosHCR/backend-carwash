@@ -7,7 +7,7 @@ Carwash Services admin
 from django.contrib import admin
 
 from app.carwash.admin.vehicle_license_plate import VehicleLicensePlateForm
-from app.carwash.models.carwash_services import CarWashService
+from app.carwash.models.carwash_service import CarWashService
 from app.carwash.models.service_type import ServiceType
 from app.carwash.models.vehicle_license_plate import VehicleLicensePlate
 
@@ -20,7 +20,7 @@ from app.carwash.models.vehicle_license_plate import VehicleLicensePlate
 ###
 # Main Admin Models
 ###
-class CarwashServicesAdmin(admin.ModelAdmin):
+class CarwashServiceAdmin(admin.ModelAdmin):
     """
     Carwash Services Admin
     """
@@ -72,6 +72,6 @@ class VehicleLicensePlateAdmin(admin.ModelAdmin):
     form = VehicleLicensePlateForm
 
 
-admin.site.register(CarWashService, CarwashServicesAdmin)
+admin.site.register(CarWashService, CarwashServiceAdmin)
 admin.site.register(ServiceType, ServiceTypeAdmin)
 admin.site.register(VehicleLicensePlate, VehicleLicensePlateAdmin)

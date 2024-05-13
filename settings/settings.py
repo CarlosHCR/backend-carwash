@@ -24,22 +24,44 @@ ENVIRONMENT = os.environ.get('ENVIRONMENT')
 LOAD_ENVS_FROM_FILE = os.environ.get("LOAD_ENVS_FROM_FILE", "False") == "True"
 
 
-# SECURITY WARNING: keep the secret key used in production secret!
+###
+# Security Key CHECK FOR PRODUCTION
+###
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
+###
+# Debug  HECK FOR PRODUCTION
+###
 DEBUG = True
 
-# SECURITY WARNING: update this when you have the production host
-ALLOWED_HOSTS = ["*"]
 
 ###
-# CorsHeader
+# Frontend URL
 ###
-CORS_ORIGIN_ALLOW_ALL = True
+FE_URL = os.environ.get('FE_URL')
 
 
+###
+# Allowed Hosts CHECK FOR PRODUCTION
+###
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    '192.168.0.12'
+]
+
+
+###
+# CorsHeader CHECK FOR PRODUCTION
+###
+CORS_ALLOWED_ORIGINS = [
+    FE_URL,
+]
+
+
+###
 # Application definition
+###
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -73,6 +95,10 @@ INSTALLED_APPS = [
     'drf_yasg',
 ]
 
+
+###
+# Middleware
+###
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -84,9 +110,16 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+
+###
+# Root URL
+###
 ROOT_URLCONF = 'settings.urls'
 
 
+###
+# Templates
+###
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -106,12 +139,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'settings.wsgi.application'
 
+
 ###
 # Database
 ###
 DATABASE_URL = os.environ.get('DATABASE_URL')
 DATABASES = {'default': dj_database_url.parse(DATABASE_URL)}
 DATABASES['default']['ATOMIC_REQUESTS'] = True
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -145,10 +180,14 @@ USE_TZ = True
 ###
 # Static Files
 ###
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
-# Default primary key field type
+
+###
+# PK Auto Field
+###
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 ###
 # Rest Auth
@@ -199,13 +238,9 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 25,
 }
 
-###
-# Frontend URL
-###
-FE_URL = os.environ.get('FE_URL')
 
 ###
-# Celery
+# Celery and Redis Configuration
 ###
 REDIS_HOST = os.environ.get('REDIS_HOST', 'localhost')
 REDIS_PORT = os.environ.get('REDIS_PORT', '6379')

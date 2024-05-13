@@ -1,5 +1,5 @@
 """
-account URL Configuration
+Account URL Configuration
 """
 ###
 # Libs

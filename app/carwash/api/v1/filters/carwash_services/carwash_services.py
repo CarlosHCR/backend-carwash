@@ -6,7 +6,7 @@ API V1: CarWash Service Filters
 ###
 from django_filters import rest_framework as filters
 
-from app.carwash.models.carwash_services import CarWashService
+from app.carwash.models.carwash_service import CarWashService
 
 
 ###

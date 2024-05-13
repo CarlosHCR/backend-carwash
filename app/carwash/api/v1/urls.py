@@ -7,10 +7,10 @@ API V1: Carwash Services Urls
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
-from app.carwash.api.v1.views.carwash_services import CarWashServiceViewSet
+from app.carwash.api.v1.views.carwash_service import CarWashServiceViewSet
 from app.carwash.api.v1.views.service_type import ServiceTypeViewSet
 from app.carwash.api.v1.views.vehicle_license_plate import VehicleLicensePlateViewSet
-
+from app.carwash.api.v1.views.busy_times import BusyTimesView
 
 ###
 # Routers
@@ -19,24 +19,26 @@ from app.carwash.api.v1.views.vehicle_license_plate import VehicleLicensePlateVi
 router = DefaultRouter()
 
 router.register(
-    r'carwashservices',
+    r'carwashservice',
     CarWashServiceViewSet,
-    basename='carwashservices'
+    basename='carwashservice'
 )
 router.register(
     r'servicetypes',
     ServiceTypeViewSet,
-    basename='servicetypes'
+    basename='servicetype'
 )
 router.register(
-    r'vehiclelicenseplates',
+    r'vehiclelicenseplate',
     VehicleLicensePlateViewSet,
     basename='vehiclelicenseplates'
 )
+
 
 ###
 # URLs
 ###
 urlpatterns = [
     path('', include(router.urls)),
+    path('busytimes/', BusyTimesView.as_view(), name='busy_times'),
 ]

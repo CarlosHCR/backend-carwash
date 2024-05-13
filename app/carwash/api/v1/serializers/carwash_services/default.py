@@ -8,7 +8,7 @@ from rest_framework import serializers
 
 from app.carwash.api.v1.serializers.service_type.default import DefaultServiceTypeSerializer
 from app.carwash.api.v1.serializers.vehicle_license_plate.default import DefaultVehicleLicensePlateSerializer
-from app.carwash.models.carwash_services import CarWashService
+from app.carwash.models.carwash_service import CarWashService
 
 
 ###

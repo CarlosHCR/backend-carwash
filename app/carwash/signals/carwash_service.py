@@ -4,7 +4,7 @@
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 
-from app.carwash.models.carwash_services import CarWashService
+from app.carwash.models.carwash_service import CarWashService
 
 
 ###

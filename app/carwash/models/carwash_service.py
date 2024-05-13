@@ -58,3 +58,6 @@ class CarWashService(TimestampModel):
     class Meta:
         verbose_name = _('Car Wash Service')
         verbose_name_plural = _('Car Washes Services')
+        indexes = [
+            models.Index(fields=['service_date',]),
+        ]
