@@ -4,17 +4,15 @@ API V1: CarWash Service Default Serializers
 ###
 # Libs
 ###
-from django.core.exceptions import ValidationError
-from django.utils.timezone import now
 from rest_framework import serializers
 
 from app.accounts.constants import UserRolesMixin
 from app.carwash.api.v1.serializers.service_type.default import DefaultServiceTypeSerializer
 from app.carwash.api.v1.serializers.vehicle_license_plate.default import DefaultVehicleLicensePlateSerializer
-from app.carwash.models.carwash_services import CarWashService
+from app.carwash.models.carwash_service import CarWashService
 from app.carwash.models.service_type import ServiceType
 from app.carwash.models.vehicle_license_plate import VehicleLicensePlate
-
+from app.carwash.helpers.validate import validate_service_date
 
 
 ###
@@ -37,11 +35,7 @@ class CreateCarWashServiceSerializer(serializers.ModelSerializer):
                 attrs['vehicle_license_plate'] = vehicle_license_plate
 
         if self.context['request'].user.role == UserRolesMixin.CLIENT:
-
-            service_date = attrs.get('service_date')
-            if service_date <= now():
-                raise ValidationError(
-                    'The date needs to be valid. The service must be scheduled for the future.')
+            validate_service_date(attrs)
 
         return super().validate(attrs)
 
