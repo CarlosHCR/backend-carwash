@@ -11,14 +11,16 @@ from app.carwash.models.carwash_service import CarWashService
 ###
 # Helpers
 ###
+
+
 def validate_service_date(attrs):
     service_date = attrs.get('service_date')
-    
+
     if not service_date:
         raise ValidationError(
             'The service date is required.')
 
-    start_time = time(8, 0)
+    start_time = time(7, 0)
     end_time = time(18, 0)
 
     if service_date <= now():
@@ -39,4 +41,3 @@ def validate_service_date(attrs):
     if existing_service:
         raise ValidationError(
             'The date is not available. Please choose another date and time.')
-
