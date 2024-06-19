@@ -21,7 +21,7 @@ def validate_service_date(attrs):
             'The service date is required.')
 
     start_time = time(7, 0)
-    end_time = time(19, 0)
+    end_time = time(18, 0)
 
     if service_date <= now():
         raise ValidationError(
