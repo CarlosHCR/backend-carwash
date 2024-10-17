@@ -47,7 +47,6 @@ FE_URL = os.environ.get('FE_URL')
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '192.168.0.12'
 ]
 
 
@@ -55,7 +54,9 @@ ALLOWED_HOSTS = [
 # CorsHeader CHECK FOR PRODUCTION
 ###
 CORS_ALLOWED_ORIGINS = [
-    FE_URL,
+    'http://127.0.0.1:3000',
+    'http://localhost:3000'
+
 ]
 
 
@@ -168,7 +169,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Sao_Paulo'
 
 USE_I18N = True
 
