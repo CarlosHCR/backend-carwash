@@ -1,4 +1,3 @@
-version: '3.0'
 services:
   db:
     image: postgres:16.2
@@ -8,7 +7,7 @@ services:
       - "./docker/db/pgdata:/var/lib/postgresql/data"
     environment:
       POSTGRES_PASSWORD: "postgres"
-      POSTGRES_DB: "carwash"
+      POSTGRES_DB: "drf-authentication"
   redis:
     image: redis:5.0
     ports:
