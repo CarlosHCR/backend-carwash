@@ -29,7 +29,7 @@ def validate_service_date(attrs):
 
     if service_date.time() < start_time or service_date.time() > end_time:
         raise ValidationError(
-            'The service must be scheduled between 8:00 and 18:00.')
+            'The service must be scheduled between 7:00 and 18:00.')
 
     if service_date.weekday() > 4:
         raise ValidationError(

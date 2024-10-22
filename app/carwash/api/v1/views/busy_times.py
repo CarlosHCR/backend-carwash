@@ -36,7 +36,7 @@ class BusyTimesView(APIView):
             start_date = tz.now().date()
 
         if start_date == tz.now().date():
-            start_date += timedelta(days=1)
+            start_date += timedelta(days=2)
 
         end_date = start_date + timedelta(days=7)
 
