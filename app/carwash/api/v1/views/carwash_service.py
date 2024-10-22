@@ -53,6 +53,18 @@ class CarWashServiceViewSet(viewsets.ModelViewSet):
         user = self.request.user
         serializer.save(registered_by=user)
 
+    @action(
+        detail=False,
+        methods=['get'],
+        url_path='last-service',
+        permission_classes=(permissions.IsAuthenticated,)
+    )
+    def last_service(self, request):
+        user = request.user
+        last_service = CarWashService.objects.filter(registered_by=user).last()
+        serializer = self.get_serializer(last_service)
+        return Response(serializer.data)
+
     ###
     # Actions to alter the STATUS FIELD
     ###
