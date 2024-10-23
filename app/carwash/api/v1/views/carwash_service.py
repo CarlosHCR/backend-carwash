@@ -62,6 +62,8 @@ class CarWashServiceViewSet(viewsets.ModelViewSet):
     def last_service(self, request):
         user = request.user
         last_service = CarWashService.objects.filter(registered_by=user).last()
+        if not last_service:
+            return Response(status=status.HTTP_404_NOT_FOUND)
         serializer = self.get_serializer(last_service)
         return Response(serializer.data)
 
