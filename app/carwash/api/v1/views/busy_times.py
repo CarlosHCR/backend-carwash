@@ -9,12 +9,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from datetime import datetime, timedelta
 from django.utils import timezone as tz
-import pytz
 
 from settings.settings import TIME_ZONE
 from app.carwash.models.carwash_service import CarWashService
 
-timezone = pytz.timezone(TIME_ZONE)
 
 ###
 # Viewsets
