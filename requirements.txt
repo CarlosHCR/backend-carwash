@@ -14,7 +14,7 @@ dj-rest-auth[with_social]==4.0.1
 djangorestframework-simplejwt==5.3.0
 
 # Database
-psycopg2-binary==2.9.6
+psycopg2-binary==2.9.10
 dj_database_url==0.5.0
 
 # Swagger
