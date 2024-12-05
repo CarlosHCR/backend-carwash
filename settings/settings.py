@@ -39,6 +39,7 @@ DEBUG = True
 # Frontend URL
 ###
 FE_URL = os.environ.get('FE_URL')
+FE_IP = os.environ.get('FE_IP')
 
 
 ###
@@ -47,16 +48,15 @@ FE_URL = os.environ.get('FE_URL')
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
+    FE_IP,
 ]
 
 
 ###
-# CorsHeader CHECK FOR PRODUCTION
+# CorsHeader CHECK FOR PRODUCTIONß
 ###
 CORS_ALLOWED_ORIGINS = [
-    'http://127.0.0.1:3000',
-    'http://localhost:3000'
-
+    FE_URL,
 ]
 
 
